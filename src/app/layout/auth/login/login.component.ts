@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
 
   validateForm!: UntypedFormGroup;
   constructor(private fb: UntypedFormBuilder, protected router: Router) { }
+  typePassword = 'password'
+  hiddenIconEye = false;
+  hiddenIconEyeInvisible = true;
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -23,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      console.log("submit", this.validateForm.value);
+
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -38,5 +42,17 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  showPass(isShow: boolean): void{
+    if(isShow){
+      this.typePassword='text';
+      this.hiddenIconEye=true;
+      this.hiddenIconEyeInvisible=false;
+      return
+    }
+    this.typePassword='password';
+    this.hiddenIconEye=false;
+    this.hiddenIconEyeInvisible=true;
+    return
+  }
 
 }
