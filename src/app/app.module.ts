@@ -11,12 +11,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AntdModule } from './shared/antd.module';
+import { HeaderComponent } from './core/header/header.component';
+import { MenuComponent } from './core/menu/menu.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

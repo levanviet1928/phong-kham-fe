@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { AccountService } from './account.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { AccountService } from './account.service';
 export class SigninComponent implements OnInit {
 
   validateForm!: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder, protected router: Router, private accountService: AccountService) { }
+  constructor(private fb: UntypedFormBuilder, protected router: Router, private accountService: AccountService,
+    private notification: NzNotificationService) { }
   typePassword = 'password'
   hiddenIconEye = false;
   hiddenIconEyeInvisible = true;
@@ -31,15 +33,23 @@ export class SigninComponent implements OnInit {
         userName: this.validateForm.value.userName,
         password: this.validateForm.value.password,
       }
-      // console.log(userInfo.userName + userInfo.password);
 
       this.accountService.login(userInfo).subscribe(
         data => {
-          localStorage.setItem('userInfo', data),
+
+          localStorage.setItem('access_token',  data['access_token']);
+          localStorage.setItem('token_type',  data['token_type']);
+          localStorage.setItem('user_id',  data.account.account_id);
+          localStorage.setItem('user_name',  data.account.user_name);
+          console.log(data);
+
           this.router.navigate(['home']);
         },
         err => {
-          alert("tai khoan hoac mat khau khong chinh xacs")
+            this.notification.blank("Thông báo",
+            'Tài khoản hoặc mật khẩu không chính xác',
+            {nzPlacement : 'top'}
+            );
         }
       );
 
@@ -52,10 +62,7 @@ export class SigninComponent implements OnInit {
       });
     }
   }
-  login() {
-    localStorage.setItem('isLogin', 'true');
-    this.router.navigate(['']);
-  }
+
 
   showPass(isShow: boolean): void {
     if (isShow) {
