@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json', 'api-key': 'top-secret-key'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 }
 
 @Injectable({
@@ -24,14 +24,14 @@ export class HttpServiceService {
   }
 
   getItemById(id: any): Observable<any> {
-    return this.http.get(this.enpoint)
+    return this.http.get(this.enpoint + `/${id}`)
   }
 
-  saveItem(body:any): Observable<any> {
-    return this.http.get(this.enpoint)
+  saveItem(body: any): Observable<any> {
+    return this.http.post(this.enpoint, body, httpOptions);
   }
 
   deleteItem(id: any): Observable<any> {
-    return this.http.delete(this.enpoint+`/${id}`)
+    return this.http.delete(this.enpoint + `/${id}`)
   }
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
@@ -12,33 +12,31 @@ import { HttpServiceService } from './http-service.service';
   styleUrls: ['./service.component.scss'],
 })
 export class ServiceComponent implements OnInit {
-  dataSet: Array<any> = [];
+  dataSet: any = [];
 
   constructor(
     private fb: UntypedFormBuilder,
     protected router: Router,
     private httpService: HttpServiceService,
     private notification: NzNotificationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.httpService.getAll().subscribe((data) => {
-      data.data.forEach((item: any) => {
-        this.dataSet.push(item);
-      });
+      this.dataSet = [...data.data]
     });
   }
 
-  editService(id: any){
-   this.router.navigate(["/home/service/"+id])
+  editService(id: any) {
+    this.router.navigate(["/home/service/" + id])
   }
 
-  addService(){
+  addService() {
     this.router.navigate(["/home/service/add"])
-   }
+  }
 
 
-  deleteService(id: any){
-   this.httpService.deleteItem(id).subscribe(console.log);
+  deleteService(id: any) {
+    this.httpService.deleteItem(id).subscribe(console.log);
   }
 }
