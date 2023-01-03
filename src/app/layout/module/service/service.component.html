@@ -1,0 +1,33 @@
+<nz-page-header>
+  <nz-page-header-title>Danh mục dịch vụ</nz-page-header-title>
+  <nz-page-header-extra>
+    <button nz-button nzType="primary" (click)="addService()">
+      <span nz-icon nzType="plus-circle"></span>Thêm mới
+    </button>
+  </nz-page-header-extra>
+</nz-page-header>
+<nz-table #basicTable [nzData]="dataSet">
+  <thead>
+    <tr>
+      <th nzWidth="50px" nzAlign="center">STT</th>
+      <th nzWidth="100px" nzAlign="center">Mã dịch vụ</th>
+      <th nzWidth="250px" nzAlign="center">Tên dịch vụ</th>
+      <th nzWidth="120px" nzAlign="center">Giá dịch vụ</th>
+      <th nzWidth="120px" nzAlign="center">Có hiệu lực</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let data of basicTable.data; index as i"
+      (dblclick)="editService(data.serviceId)"
+    >
+      <!-- <tr> -->
+      <td nzAlign="center">{{ i }}</td>
+      <td nzAlign="center">{{ data.serviceCode }}</td>
+      <td nzAlign="center">{{ data.serviceName }}</td>
+      <td nzAlign="center">{{ data.price }}</td>
+      <td nzAlign="center"><label nz-checkbox></label></td>
+    </tr>
+  </tbody>
+</nz-table>
+<router-outlet></router-outlet>

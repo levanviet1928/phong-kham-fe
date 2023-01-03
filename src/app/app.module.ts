@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AntdModule } from './shared/antd.module';
 import { HeaderComponent } from './core/header/header.component';
 import { MenuComponent } from './core/menu/menu.component';
+import { HomeComponent } from './layout/module/home/home.component';
+import { HomeModule } from './layout/module/home/home.module';
 
 registerLocaleData(en);
 
