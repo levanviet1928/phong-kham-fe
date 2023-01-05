@@ -1,52 +1,62 @@
 <div class="login-page">
+
   <div class="login-container">
-    <div class="img-login">
-      <img src="../../../../assets/images/avatar.png" alt="" srcset="" />
+    <div class="images-background">
+      <img src="../../../../assets/images/arnh.png">
     </div>
-    <form
-      nz-form
-      [formGroup]="validateForm"
-      class="login-form"
-      (ngSubmit)="submitForm()"
-    >
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your username!">
-          <nz-input-group nzPrefixIcon="user">
-            <input
-              type="text"
-              nz-input
-              formControlName="userName"
-              placeholder="Username"
-            />
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Password!">
-          <nz-input-group id="password" nzPrefixIcon="lock">
-            <input
-              [type]="typePassword"
-              nz-input
-              formControlName="password"
-              placeholder="Password"
-            />
-            <span nz-icon [hidden]="hiddenIconEye" (click)="showPass(true)" nzType="eye" nzTheme="outline"></span>
-            <span nz-icon [hidden]="hiddenIconEyeInvisible" (click)="showPass(false)" nzType="eye-invisible" nzTheme="outline"></span>
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <div class="login-form-margin">
-        <label nz-checkbox formControlName="remember">
-          <span>Remember me</span>
-        </label>
+    <div class="images-background1">
+      <div class="wrapper-center">
+        <div class="img-login">
+          <img src="../../../../assets/images/logonew.png"height="250px"width="300px" alt="" srcset=""/>
+        </div>
+        <form
+          nz-form
+          [formGroup]="validateForm"
+          class="login-form"
+          (ngSubmit)="submitForm()"
+        >
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Vui lòng nhập tên tài khoản của bạn!">
+              <nz-input-group nzPrefixIcon="user">
+                <input
+                  type="text"
+                  nz-input
+                  formControlName="userName"
+                  placeholder="Username"
+                />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Vui lòng nhập mệt khẩu của bạn!">
+              <nz-input-group id="password" nzPrefixIcon="lock">
+                <input
+                  [type]="typePassword"
+                  nz-input
+                  formControlName="password"
+                  placeholder="Password"
+                />
+                <span nz-icon [hidden]="hiddenIconEye" (click)="showPass(true)" nzType="eye" nzTheme="outline"></span>
+                <span nz-icon [hidden]="hiddenIconEyeInvisible" (click)="showPass(false)" nzType="eye-invisible"
+                      nzTheme="outline"></span>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <div class="login-form-margin">
+            <label nz-checkbox formControlName="remember">
+              <span>Lưu tài khoản</span>
+            </label>
+          </div>
+          <button
+            nz-button
+            class="login-form-button login-form-margin"
+            [nzType]="'primary'"
+          >
+            Đăng nhập
+          </button>
+        </form>
       </div>
-      <button
-        nz-button
-        class="login-form-button login-form-margin"
-        [nzType]="'primary'"
-      >
-        Log in
-      </button>
-    </form>
+    </div>
+
   </div>
 </div>
