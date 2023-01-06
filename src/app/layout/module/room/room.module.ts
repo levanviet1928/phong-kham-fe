@@ -1,17 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RoomRoutingModule } from './room-routing.module';
+import { ServiceRoutingModule } from './room-routing.module';
+import { RoomComponent } from './room.component';
 import { DetailComponent } from './detail/detail.component';
+import { AntdModule } from 'src/app/shared/antd.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    DetailComponent
+    DetailComponent,
+    RoomComponent
   ],
   imports: [
     CommonModule,
-    RoomRoutingModule
+    ServiceRoutingModule,
+    ReactiveFormsModule,
+    AntdModule
   ]
 })
 export class RoomModule { }

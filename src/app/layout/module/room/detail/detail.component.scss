@@ -1,0 +1,36 @@
+.layout {
+  min-height: 100vh;
+}
+
+nz-form-label {
+  overflow: visible;
+  width: 100px;
+  text-align: left;
+}
+
+nz-content {
+  margin-top: 20px;
+}
+
+.inner-content {
+  margin: auto;
+  width: 95vw;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+button {
+  margin-left: 8px;
+}
+
+.checkbox-custom {
+  margin: 0 5px;
+}
+
+.search-area {
+  text-align: center;
+}
+
+.ant-advanced-search-form {
+  padding: 24px;
+}

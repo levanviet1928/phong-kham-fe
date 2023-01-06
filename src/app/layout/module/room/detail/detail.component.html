@@ -1,1 +1,46 @@
-<p>detail works!</p>
+<nz-layout class="layout">
+  <nz-content>
+    <div class="inner-content">
+      <nz-page-header nzBackIcon nzTitle="Danh mục phòng"></nz-page-header>
+      <nz-divider></nz-divider>
+
+      <form nz-form [formGroup]="validateForm" class="login-form ant-advanced-search-form" (ngSubmit)="submitForm()">
+        <div nz-row [nzGutter]="24">
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label>Mã dịch vụ</nz-form-label>
+              <nz-form-control nzErrorTip="Mã phòng bắt buộc">
+                <input formControlName="code" nz-input placeholder="nhập" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label>Tên dịch vụ</nz-form-label>
+              <nz-form-control nzErrorTip="Tên phòng bắt buộc">
+                <input formControlName="name" nz-input placeholder="nhập" />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label>Trạng thái</nz-form-label>
+              <nz-form-control>
+                <input class="checkbox-custom" type="checkbox" #enable>
+                <span>Có hiệu lực</span>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button nzType="primary" nzGhost="true" (click)="cancel()">Huỷ</button>
+            <button nz-button nzType="primary" (click)="saveRoom()">Lưu</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </nz-content>
+</nz-layout>

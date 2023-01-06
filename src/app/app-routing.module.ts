@@ -21,8 +21,18 @@ const routes: Routes = [
             (m) => m.ServiceModule
           ),
       },
+      {
+        path: 'room',
+        loadChildren: () =>
+          import('./layout/module/room/room.module').then(
+            (m) => m.RoomModule
+          ),
+      },
     ],
+
+
   },
+
 ];
 
 @NgModule({
