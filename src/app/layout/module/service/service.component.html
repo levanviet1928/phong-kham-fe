@@ -6,7 +6,7 @@
     </button>
   </nz-page-header-extra>
 </nz-page-header>
-<nz-table #basicTable [nzData]="dataSet">
+<nz-table #basicTable [nzData]="dataSet" nzShowPagination="false">
   <thead>
     <tr>
       <th nzWidth="50px" nzAlign="center">STT</th>
@@ -17,12 +17,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let data of basicTable.data; index as i"
-      (dblclick)="editService(data.serviceId)"
-    >
+    <tr *ngFor="let data of basicTable.data; index as i" (dblclick)="editService(data.serviceId)">
       <!-- <tr> -->
-      <td nzAlign="center">{{ i }}</td>
+      <td nzAlign="center">{{ i+1 }}</td>
       <td nzAlign="center">{{ data.serviceCode }}</td>
       <td nzAlign="center">{{ data.serviceName }}</td>
       <td nzAlign="center">{{ data.price }}</td>

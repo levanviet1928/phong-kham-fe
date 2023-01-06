@@ -4,39 +4,39 @@ import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { environment } from 'src/environments/environment';
-import { HttpServiceService } from './http-service.service';
+import { HttpRoomService } from './http-room.service';
 
 @Component({
-  selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrls: ['./service.component.scss'],
+  selector: 'app-room',
+  templateUrl: './room.component.html',
+  styleUrls: ['./room.component.scss'],
 })
-export class ServiceComponent implements OnInit {
+export class RoomComponent implements OnInit {
   dataSet: any = [];
 
   constructor(
     private fb: UntypedFormBuilder,
     protected router: Router,
-    private httpService: HttpServiceService,
+    private httpRoom: HttpRoomService,
     private notification: NzNotificationService
   ) { }
 
   ngOnInit(): void {
-    this.httpService.getAll().subscribe((data) => {
+    this.httpRoom.getAll().subscribe((data) => {
       this.dataSet = [...data.data]
     });
   }
 
-  editService(id: any) {
-    this.router.navigate(["/home/service/" + id])
+  editRoom(id: any) {
+    this.router.navigate(["/home/room/" + id])
   }
 
-  addService() {
-    this.router.navigate(["/home/service/add"])
+  addRoom() {
+    this.router.navigate(["/home/room/add"])
   }
 
 
-  deleteService(id: any) {
-    this.httpService.deleteItem(id).subscribe(console.log);
+  deleteRoom(id: any) {
+    this.httpRoom.deleteItem(id).subscribe(console.log);
   }
 }

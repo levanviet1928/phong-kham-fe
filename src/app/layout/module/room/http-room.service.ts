@@ -13,9 +13,9 @@ const httpOptions = {
 
 
 
-export class HttpServiceService {
+export class HttpRoomService {
 
-  private enpoint = `${environment.localhost}/api/service`;
+  private enpoint = `${environment.localhost}/api/room`;
 
   constructor(private http: HttpClient) { }
 

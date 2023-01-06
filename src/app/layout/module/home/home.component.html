@@ -1,1 +1,30 @@
-<router-outlet></router-outlet>
+<nz-layout class="layout">
+  <nz-sider nzCollapsible nzBreakpoint="lg" [nzCollapsedWidth]="0">
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <span nz-icon nzType="user"></span>
+        <span>Quản lý bệnh nhân</span>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="video-camera"></span>
+        <span>Quản lý phòng</span>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="upload"></span>
+        <span>Quản lý dịch vụ</span>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="user"></span>
+        <span>Thanh toán</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header></nz-header>
+    <nz-content>
+
+    </nz-content>
+    <nz-footer>Design ©2022 Implement By Dungcv8</nz-footer>
+  </nz-layout>
+</nz-layout>
