@@ -24,15 +24,17 @@ const routes: Routes = [
       {
         path: 'room',
         loadChildren: () =>
-          import('./layout/module/room/room.module').then(
-            (m) => m.RoomModule
+          import('./layout/module/room/room.module').then((m) => m.RoomModule),
+      },
+      {
+        path: 'patient',
+        loadChildren: () =>
+          import('./layout/module/patient/patient.module').then(
+            (m) => m.PatientModule
           ),
       },
     ],
-
-
   },
-
 ];
 
 @NgModule({
