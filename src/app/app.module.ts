@@ -22,7 +22,7 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
