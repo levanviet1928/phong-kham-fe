@@ -2,9 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './layout/module/home/home.component';
 import { DetailComponent } from './layout/module/service/detail/detail.component';
+import {RoomComponent} from "./layout/module/room/room.component";
+import {ServiceComponent} from "./layout/module/service/service.component";
+import {PatientComponent} from "./layout/module/patient/patient.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/singin', pathMatch: 'full' },
+  { path: 'room', component: RoomComponent },
+  { path: 'service', component: ServiceComponent },
+  { path: 'patient', component: PatientComponent },
   {
     path: 'singin',
     loadChildren: () =>
